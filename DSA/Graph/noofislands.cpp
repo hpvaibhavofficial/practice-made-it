@@ -33,6 +33,33 @@ int noOfIslands(vector<vector<char>> &grid){
     }
     return cnt;
 }
+
+void bfs(int row, int col,vector<vector<char>> &grid,vector<vector<int>> &vis){
+    int n = grid.size();
+    int m = grid[0].size();
+    queue<pair<int,int>> q;
+    q.push({row,col});
+    vis[row][col]=1;
+
+    while(!q.empty()){
+        int rr = q.front().first;
+        int cc = q.front().second;
+        q.pop();
+        int r[] = {0,0,1,-1};
+        int c[] = {1,-1,0,0};
+
+    for(int i=0;i<4;i++){
+        int delrow = rr+r[i];
+        int delcol = cc+c[i];
+        if(delrow >= 0 && delcol >= 0 && delrow < n && delcol < m &&
+                !vis[delrow][delcol] && grid[delrow][delcol] == '1'){
+            q.push({delrow,delcol});
+            vis[delrow][delcol] =1;
+        }
+    }
+    }
+}
+
 int main() {
     vector<vector<char>> grid = {
         {'1','1','0','0','0'},
@@ -44,3 +71,4 @@ int main() {
     cout << "Number of islands: " << noOfIslands(grid) << endl;
     return 0;
 }
+
