@@ -6,7 +6,9 @@ void dfs(int row, int col,vector<vector<char>> &grid,vector<vector<int>> &vis){
     if(row<0 || col < 0 || row >= grid.size() || col >= grid[0].size() || vis[row][col] == 1 || grid[row][col] == '0'){
         return;
     }
+
     vis[row][col] = 1;
+    
 
     int r[] = {0,0,1,-1};
     int c[] = {1,-1,0,0};
