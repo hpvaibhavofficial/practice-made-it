@@ -1,4 +1,5 @@
 create database lpu25;
+
 use lpu25;
 create table student
 (
