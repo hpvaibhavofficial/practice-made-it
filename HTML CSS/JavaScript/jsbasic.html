@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    
+    <div id = "div1">
+        this is div1.
+        <div>two    </div>
+    </div>
+    <div id="div2"> this is div2. Js wipll be changing this content.</div>
+    <script>
+
+        function myfin(){
+            let s=0;
+            for(var i=0;i<=10;i++){
+                s= s+i;
+            }
+            return s;
+        
+        }
+        
+
+        let student = { name : 'Vaibhav' , age:20  }
+        student.branch = 'cse';
+        student['address'] = 'Chanigarh';
+        console.log(student);
+
+        function count(){
+            for( var i=1;i<=10;i++){
+                document.write(i+"<br>");
+
+            }
+        
+        }   
+        count();
+        
+
+        var val =45;
+        val = "Hello";
+        var x = "goodddddd"
+        x = {name : 'Virat',score : 10}
+        var y  = 34
+        var y = 393
+        var y = 5343
+        var y = 343
+        const xx = 333333333;
+
+
+        window.alert("Javascript is showing alert.")
+        console.log("javascript is logging some messages")
+
+        var ele =  document.getElementById("div2");
+        ele.innerHTML = "This is nw content ";
+        console.log(typeof(ele))
+
+        var alldivs = document.getElementsByTagName("div");
+        console.log("No of divs are : "+alldivs.length);
+        console.log(typeof(alldivs));
+        
+   </script>
+</body>
+</html>

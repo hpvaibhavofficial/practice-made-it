@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Practice session</title>
+</head>
+<body>
+  <div id="box1" style="display: flex; flex-direction: column; justify-content: center; align-items: center; margin-top: 200px;">
+    <form onsubmit="EntryManager(event)" style="display: flex; flex-direction: column; gap: 10px; padding: 20px; border: 2px solid black; border-radius: 20px;">
+      
+      <label for="uid">Username:</label>
+      <input type="text" id="uid" placeholder="Username" name="Username">
+
+      <label for="pass">Password:</label>
+      <input type="password" id="pass" placeholder="Password" name="password">
+
+      <label for="pan">Pan Card</label>
+      <input type="text" id="pan" placeholder="PanCard" name="PanCard">
+
+      <input type="submit" value="Submit">
+    </form>
+
+    <div id="result" style="margin-top: 20px; font-weight: bold;"></div>
+  </div>
+
+  <script>
+    function EntryManager(event) {
+      event.preventDefault();  // Stop form from refreshing
+      
+      var str = document.getElementById("pan").value;
+      var pat = /^[A-Z]{5}[0-9]{4}[A-Z]$/i;
+
+      var resultBox = document.getElementById("result");
+
+      if (pat.test(str)) {
+        resultBox.innerText = "✅ Credentials Matched";
+        resultBox.style.color = "green";
+      } else {
+        resultBox.innerText = "❌ Invalid PAN Card";
+        resultBox.style.color = "red";
+      }
+    }
+  </script>
+</body>
+</html>

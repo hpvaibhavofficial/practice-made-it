@@ -1,0 +1,21 @@
+# Dependency folders
+node_modules/
+
+# Build output
+dist/
+build/
+
+# Environment files
+.env
+
+# Log files
+*.log
+
+# OS and IDE files
+.DS_Store
+.vscode/
+.idea/
+
+# Optional: lock files (if using yarn or pnpm, comment if you use npm)
+# yarn.lock
+# pnpm-lock.yaml

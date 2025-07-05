@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Basics</title>
+</head>
+<body>
+    <h1 id="div1">
+        <div>
+            Hello i am learning dom in java.
+            <button onclick="changeText()">Change text</button>
+
+        </div>
+    </h1>
+
+    <script>
+        function changeText()
+        {
+            document.getElementById("div1").innerHTML = "hi i am groot";
+        }
+
+    </script>
+</body>
+</html>

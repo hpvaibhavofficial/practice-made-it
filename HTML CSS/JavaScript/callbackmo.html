@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>SEE console as well</h3>
+    <div id="show"></div>
+    <button onclick="startTime()">Start</button>
+    <span id = "time"></span>
+    <button onclick="stopInterVal()">Stop</button>
+
+
+    <script>
+        var count =1;
+        var interval;
+        function setTimer(){
+            setTimeout(()=>{console.log("3 seconds over")},3000);
+            interval = setInterval(()=> {console.log("2 seconds over")},2000);
+
+        }
+        function stopInterVal(){
+            clearInterval(interval);
+        }
+
+        function displayOnConsole(data){
+            console.log("data = "+data);
+        }
+        function displayOnScreen(data){
+            var el = document.getElementById("show");
+            el.innerHTML += "<div> " + data + "</div>";
+        }
+
+        function showRandomes(min , max ,fun){
+            for(let i=1;i<=10;i++){
+                var rand = Math.floor(Math.random()*(max-min+1));
+               fun(rand);
+            }
+        }
+
+        showRandomes(10,100,displayOnConsole);
+        showRandomes(10,100,displayOnScreen);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>learning js arrays</title>
+</head>
+<body>
+    <h3>select a fruit</h3>
+    <select name="fruit" id="fruit" onchange="appendFruit()">
+        
+    </select>
+    <br>
+    You have selected - <span id="fruitname">Mango</span>
+
+    <script>
+        let arr1 = [101, 10, 22];
+        let arr2 = new Array(101, 22, 123, 12, 45);
+        console.log(arr1);
+        for (let i = 0; i < arr2.length; i++) {
+            console.log(arr1[i]);
+        }
+        for (let num of arr1) {
+            console.log(num);
+        }
+        for (let num in arr2) {
+            console.log(arr2[num]);
+        }
+
+        let fruits = ["Apple", "Mango", "Pineapple", "Guava", "Melons", "Strawberry", "Banana"];
+        console.log(fruits);
+
+        let selec = document.getElementById('fruit');
+        let str = "";
+        for (let fruit of fruits) {
+            str += "<option>" + fruit + "</option>";
+        }
+        selec.innerHTML = str;
+
+        function appendFruit() {
+            let selec = document.getElementById('fruit');
+            let allOptions = selec.getElementsByTagName("option");
+            console.log("selected fruit is : " + selec.selectedIndex);
+            console.log(allOptions[selec.selectedIndex].innerText);
+            document.getElementById("fruitname").innerText = allOptions[selec.selectedIndex].innerText;
+        }
+
+        fruits.push("Litchi");
+        for (let x of fruits) {
+            console.log(x);
+        }
+        fruits.pop();
+        console.log(fruits);
+        console.log("Size of array fruits is  : " + fruits.length);
+
+        fruits.unshift("pomegranate");
+        console.log(fruits);
+        fruits.shift();
+        console.log(fruits);
+        console.log(fruits.includes("pomegranate"));
+        console.log(fruits.slice(3, 5));
+        console.log(fruits.join(","));
+        console.log(fruits.reverse());
+        console.log(fruits.sort());
+        console.log(fruits.splice(2, 3, "Dragonfruit"));
+        console.log(fruits);
+    </script>
+</body>
+</html>
