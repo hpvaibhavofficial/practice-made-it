@@ -60,3 +60,5 @@ int main(){
 // 2 3
 // 3 4
 // 4 1 
+
+//detect a cycle using bfs

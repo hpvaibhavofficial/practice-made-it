@@ -1,5 +1,3 @@
-//leetcode 2099. Find Subsequence of Length K With the Largest Sum.
-
 #include<bits/stdc++.h>
 using namespace std;
 
