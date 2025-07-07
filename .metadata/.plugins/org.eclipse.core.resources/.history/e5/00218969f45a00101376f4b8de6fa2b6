@@ -1,0 +1,85 @@
+package com.vb;
+
+import java.sql.Date;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ConfigurableApplicationContext;
+
+import com.vb.algo.PasswordAlgo;
+import com.vb.model.Hostel;
+import com.vb.model.Student;
+
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.EntityManagerFactory;
+import jakarta.persistence.Query;
+
+@SpringBootApplication
+public class HibernateSpringBootApplication {
+
+	public static void main(String[] args) {
+		ConfigurableApplicationContext context = SpringApplication.run(HibernateSpringBootApplication.class, args);
+
+		// Encrypt a password
+		PasswordAlgo algo = context.getBean(PasswordAlgo.class);
+		String rev = algo.encrypt("ThisPass@34");
+		System.out.println("Encrypted password: " + rev);
+
+		// List all beans (optional for debugging)
+		String[] beans = context.getBeanDefinitionNames();
+		for (String beanName : beans) {
+			System.out.println(beanName);
+		}
+
+		// Test DB operations
+		testStudent(context);
+		testHostel(context);
+	}
+
+	public static void testStudent(ConfigurableApplicationContext context) {
+		EntityManagerFactory emf = context.getBean(EntityManagerFactory.class);
+		EntityManager em = emf.createEntityManager();
+
+		em.getTransaction().begin();
+
+		// Fetch and print a student
+		Student student = em.find(Student.class, 112);
+		if (student != null) {
+			System.out.println("Fetched student: " + student);
+		} else {
+			System.out.println("Student with ID 112 not found.");
+		}
+
+		// Insert new student (optional, commented)
+		/*
+		Integer marks = 81;
+		Date dob = Date.valueOf("2001-08-08");
+		Student s = new Student(1121, "Amit dGupta", "CSE", "12121458785", dob, marks);
+		em.persist(s);
+		*/
+
+		// Display all students
+		Query query = em.createQuery("select s from Student s");
+		query.getResultList().forEach(System.out::println);
+
+		em.getTransaction().commit();
+		em.close();
+	}
+
+	public static void testHostel(ConfigurableApplicationContext context) {
+		EntityManagerFactory emf = context.getBean(EntityManagerFactory.class);
+		EntityManager em = emf.createEntityManager();
+
+		em.getTransaction().begin();
+
+		Hostel hostel = new Hostel();
+		hostel.setName("Girls Hostel");
+
+		em.persist(hostel);
+
+		em.getTransaction().commit();
+		System.out.println("Inserted Hostel: " + hostel);
+
+		em.close();
+	}
+}

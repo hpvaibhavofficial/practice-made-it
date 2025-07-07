@@ -1,0 +1,82 @@
+package com.vb;
+import java.sql.Date;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ConfigurableApplicationContext;
+
+import com.vb.model.Hostel;
+//import com.vb.algo.PasswordAlgo;
+import com.vb.model.Student;
+
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.EntityManagerFactory;
+import jakarta.persistence.Query;
+
+@SpringBootApplication
+public class HibernateSpringBootApplication {
+
+	public static void main(String[] args) {
+		ConfigurableApplicationContext context = SpringApplication.run(HibernateSpringBootApplication.class, args);
+		//PasswordAlgo algo = context.getBean(PasswordAlgo.class);
+		//String rev = algo.encrypt("ThisPass@34");
+		//System.out.println(rev);
+		
+		String[] beans = context.getBeanDefinitionNames();
+		for(String beanName : beans)
+			System.out.println(beanName);
+		
+		testStudent(context);
+		
+	}
+	@SuppressWarnings({ "unchecked", "unchecked" })
+	public static void testStudent(ConfigurableApplicationContext context)
+	{
+		// dataSource, entityManagerFactory
+		EntityManagerFactory emf = context.getBean(EntityManagerFactory.class);
+		EntityManager em = emf.createEntityManager();
+		Student student = em.find(Student.class, 112 );
+//		student.setSname("Nishi Sachdeva");
+		em.getTransaction().begin(); 
+//		em.remove(student);
+		System.out.println(student);
+		Integer marks = 81;
+		Date dob = Date.valueOf("2001-08-08");
+//		Student s =new Student(1121, "Amit dGupta", "CSE", "12121458785",dob, marks);
+//		em.persist(s);	
+		Query query = em.createQuery("select s from Student s");
+		query.getResultList().forEach(System.out::println);
+		em.getTransaction().commit();
+		em.close();
+	}
+	public static void testHostel(ConfigurableApplicationContext context) {
+	    EntityManagerFactory emf = context.getBean(EntityManagerFactory.class);
+	    EntityManager em = emf.createEntityManager();
+
+	    em.getTransaction().begin();
+
+	    Hostel hostel = new Hostel();  // ID will be auto-generated
+	    hostel.setName("Boys Hostel");
+	    em.persist(hostel);
+
+	    em.getTransaction().commit();
+
+	    System.out.println("Inserted Hostel: " + hostel);
+
+	    em.close();
+	}
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+}

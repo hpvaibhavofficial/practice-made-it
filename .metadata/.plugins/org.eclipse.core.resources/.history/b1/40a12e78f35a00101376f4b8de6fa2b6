@@ -1,0 +1,22 @@
+package com.vb.model;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import s;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.SequenceGenerator;
+@Entity
+public class Parking {
+	@SequenceGenerator(name="parkingidseq",initialValue =1102,allocationSize =1)
+	@Id
+	@GeneratedValue(strategy=GenerationType.SEQUENCE,generator = "parkingidseq")
+	
+	
+	
+	public Parking() {
+		
+	}
+	
+	
+}

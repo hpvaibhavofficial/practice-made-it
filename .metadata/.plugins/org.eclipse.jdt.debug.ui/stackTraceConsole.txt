@@ -1,0 +1,34 @@
+import org.apache.hadoop.conf.Configuration;
+import org.apache.hadoop.hbase.HBaseConfiguration;
+import org.apache.hadoop.hbase.TableName;
+import org.apache.hadoop.hbase.client.*;
+import org.apache.hadoop.hbase.client.ColumnFamilyDescriptor;
+import org.apache.hadoop.hbase.client.ColumnFamilyDescriptorBuilder;
+import org.apache.hadoop.hbase.client.TableDescriptor;
+import org.apache.hadoop.hbase.client.TableDescriptorBuilder;
+
+public class CreateTable {
+    public static void main(String[] args) throws Exception {
+        Configuration config = HBaseConfiguration.create();
+        try (Connection connection = ConnectionFactory.createConnection(config);
+             Admin admin = connection.getAdmin()) {
+
+            TableName tableName = TableName.valueOf("stable");
+
+            if (!admin.tableExists(tableName)) {
+                ColumnFamilyDescriptor cf1 = ColumnFamilyDescriptorBuilder.of("colfam1");
+                ColumnFamilyDescriptor cf2 = ColumnFamilyDescriptorBuilder.of("colfam2");
+
+                TableDescriptor tableDescriptor = TableDescriptorBuilder.newBuilder(tableName)
+                        .setColumnFamily(cf1)
+                        .setColumnFamily(cf2)
+                        .build();
+
+                admin.createTable(tableDescriptor);
+                System.out.println("Table created successfully.");
+            } else {
+                System.out.println("Table already exists.");
+            }
+        }
+    }
+}

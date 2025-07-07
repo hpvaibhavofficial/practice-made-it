@@ -1,0 +1,39 @@
+package com.vb.model;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.TableGenerator;
+
+@Entity
+public class Hostel {
+
+	@TableGenerator(name="allidtable",allocationSize = 1,initialValue = 20)
+	@Id
+	int hostelId;
+	String name;
+	public int getHostelId() {
+		return hostelId;
+	}
+	public void setHostelId(int hostelId) {
+		this.hostelId = hostelId;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	@Override
+	public String toString() {
+		return "Hostel [hostelId=" + hostelId + ", name=" + name + "]";
+	}
+	public Hostel(int hostelId, String name) {
+		super();
+		this.hostelId = hostelId;
+		this.name = name;
+	}
+	
+	public Hostel() {
+		
+	}
+}

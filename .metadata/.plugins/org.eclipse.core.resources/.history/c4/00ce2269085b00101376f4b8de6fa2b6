@@ -1,0 +1,16 @@
+package com.vb.model;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+
+@Entity
+public class Department {
+	@Id
+	@GeneratedValue(strategy = GenerationType.SEQUENCE)
+	
+	int depid;
+	String name;
+
+	
+}

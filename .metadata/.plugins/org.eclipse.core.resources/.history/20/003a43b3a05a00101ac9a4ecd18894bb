@@ -1,0 +1,5 @@
+package com.vb.model;
+
+public class Student {
+
+}

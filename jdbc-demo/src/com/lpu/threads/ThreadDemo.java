@@ -1,0 +1,41 @@
+package com.lpu.threads;
+
+//a[][] b[][] c[][]
+//		 C = A + B
+//Using multithreading
+
+class MyThread extends Thread
+{
+	public void run()
+	{
+		for(int i = 1; i<=100; i++)
+		{
+			System.out.println("child " + i);
+		}
+	}
+
+class ChildThread implements Runnable 
+{
+	public void run()
+	{
+		for(int i = 1; i<=100; i++)
+		{
+			System.out.println("child2 " + i);
+		}
+	}
+}
+public class ThreadDemo {
+	public static void main(String[] args) {
+		MyThread t1 = new MyThread();
+		t1.start(); // it will call run() but return at the same time
+		ChildThread obj = new ChildThread();
+		Thread t2 = new Thread(obj);
+		t2.start();
+		for(int i = 1; i<=100; i++)
+		{
+			System.out.println("main " + i);
+		}
+		
+	}
+
+}
