@@ -1,10 +1,10 @@
-package com.vb.hibernate_demo;
+package com.vx;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class HibernateDemoApplicationTests {
+class LbmsDemoApplicationTests {
 
 	@Test
 	void contextLoads() {

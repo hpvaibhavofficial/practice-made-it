@@ -1,4 +1,4 @@
-package com.vb.hibernate_demo;
+package com.vx;
 
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
@@ -7,7 +7,7 @@ public class ServletInitializer extends SpringBootServletInitializer {
 
 	@Override
 	protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
-		return application.sources(HibernateDemoApplication.class);
+		return application.sources(LbmsDemoApplication.class);
 	}
 
 }
