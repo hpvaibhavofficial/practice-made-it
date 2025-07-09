@@ -18,7 +18,6 @@ public class Employee {
 	
 	@ManyToOne
 	Department department;
-	
 
 	
 	@Override

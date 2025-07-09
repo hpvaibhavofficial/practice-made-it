@@ -18,6 +18,12 @@ public class Student {
 	@SequenceGenerator(name = "ref_seq", initialValue = 12210000, allocationSize = 1)
 	int regno;
 	
+	@Override
+	public String toString() {
+		return "Student [regno=" + regno + ", department=" + department + ", name=" + name + ", roll=" + roll
+				+ ", address=" + address + ", phone=" + phone + ", branch=" + branch + ", dob=" + dob + ", email="
+				+ email + ", gpa=" + gpa + ", gender=" + gender + ", status=" + status + "]";
+	}
 	@OneToOne
 	@JoinColumn(name = "dept_id")
 	Department department;

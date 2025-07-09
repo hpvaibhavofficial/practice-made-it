@@ -1,24 +1,9 @@
 package com.vb.algo;
 
+public interface PasswordHasher {
+	String hash(String password);
+	boolean match(String hash, String newPassword);
 
-//import org.springframework.stereotype.Component;
-//
-//@Component
-//public class PasswordHasher {
-//	public String encrypt(String password)
-//	{
-//		// write a program to return reverse of a string
-//		StringBuilder sb = new StringBuilder(password);
-//		StringBuilder reverse = sb.reverse();
-//		return reverse.toString();
-//	}
-//
-//}
-
-public interface PasswordHasher{
-	public String hash(String password);
-	public boolean match(String hash,String newPassword);
 }
-
 
 

@@ -1,18 +1,26 @@
 package com.vx.model;
 
+import java.util.LinkedList;
+import java.util.List;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.SequenceGenerator;
 
 @Entity
 public class Department {
 	@Id
-	@GeneratedValue( strategy = GenerationType.SEQUENCE)
+	@GeneratedValue( strategy = GenerationType.SEQUENCE,generator = "depiseq")
 	@SequenceGenerator(name = "depidseq",allocationSize = 1,initialValue = 0)
 	int depid;
 	String depname;
+	
+	@OneToMany(mappedBy = "department")
+	List<Student> stu = new LinkedList<>(); 
 	
 	public Department() {
 		// TODO Auto-generated constructor stub

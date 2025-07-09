@@ -8,7 +8,13 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
 
-import com.vb.algo.PasswordAlgo;
+import com.vb.algo.MyPasswordAlgo;
+import com.vb.algo.MyService;
+import com.vb.algo.PasswordHasher;
+import com.vb.lib.dao.BookDaoImpl;
+import com.vb.lib.model.Book;
+import com.vb.lib.service.BookService;
+import com.vb.lib.service.BookServiceImpl;
 import com.vb.model.Department;
 import com.vb.model.Employee;
 import com.vb.model.Faculty;
@@ -25,17 +31,17 @@ import jakarta.persistence.Query;
 @SpringBootApplication
 public class HibernateSpringBootApplication {
 
-    private final PasswordAlgo passwordAlgo;
+    private final BookDaoImpl bookDaoImpl;
 
-    HibernateSpringBootApplication(PasswordAlgo passwordAlgo) {
-        this.passwordAlgo = passwordAlgo;
+    HibernateSpringBootApplication(BookDaoImpl bookDaoImpl) {
+        this.bookDaoImpl = bookDaoImpl;
     }
-
 	public static void main(String[] args) {
 		ConfigurableApplicationContext context = SpringApplication.run(HibernateSpringBootApplication.class, args);
 //		PasswordAlgo algo = context.getBean(PasswordAlgo.class);
 //		String rev = algo.encrypt("ThisPass@34");
 //		System.out.println(rev);
+		
 //
 //				String[] beans = context.getBeanDefinitionNames();
 //				for(String beanName : beans)
@@ -46,7 +52,38 @@ public class HibernateSpringBootApplication {
 				//testParking(context);
 //				testEmployeeDept(context);
 				//testSingleTable(context);
-		testCustomQuery(context);
+//		testCustomQuery(context);
+//	
+//		MyPasswordAlgo algo = context.getBean(MyPasswordAlgo.class);
+//		String rev = algo.encrypt("ThisPass@34");
+//		System.out.println(rev);
+//		
+//		PasswordHasher bean = context.getBean(PasswordHasher.class);
+//		System.out.println(bean);
+//		
+//		Object bean2 = context.getBean("myXmlBeanSimple");
+//		System.out.println("xml bean : " + bean2);
+
+		
+//		String[] beans = context.getBeanDefinitionNames();
+//		for(String beanName : beans)
+//		{
+//			Object bean3 = context.getBean(beanName);
+//			if(bean3 instanceof PasswordHasher || bean3 instanceof MyPasswordAlgo)
+//				System.out.println(beanName);
+//
+//		}
+//		MyService myService= context.getBean(MyService.class);
+//		myService.show();
+		testBookService(context);
+
+	}
+	
+	public static void testBookService(ConfigurableApplicationContext context) {
+		BookService bean = context.getBean(BookService.class);
+		//BookService service =  new BookServiceImpl();
+		List<Book> books = bean.findByAuthor("SHane Murphey");
+		books.forEach(System.out::println);
 	}
 	
 	public static void testEmployeeDept(ConfigurableApplicationContext context)
@@ -174,6 +211,8 @@ public class HibernateSpringBootApplication {
 //		Query nativeQuery = em.createNativeQuery("Select * from issue,book where issue.bid = book.bid");
 //		List<Object[]> resList =nativeQuery.getResultList() ;
 //		resList.forEach(ar -> System.out.println(Arrays.toString(ar)));
+		 
+		 
 	}
 	
 }
