@@ -44,7 +44,5 @@ public class Book {
 	public void setPrince(Double prince) {
 		this.price = prince;
 	}
-	
-	
-	
+		
 }
