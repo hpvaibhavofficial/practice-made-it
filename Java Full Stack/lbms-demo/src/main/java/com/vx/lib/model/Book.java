@@ -7,22 +7,22 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.SequenceGenerator;
 
-@Entity
+@Entity					
 public class Book {
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "bookidseq")
 	@SequenceGenerator(name = "bookidseq",sequenceName = "books_seq",initialValue = 1)
 	int bid;
+
 	
 	@Column(nullable = false)
-	String title;
+	private String title;
 	
-	String author;
-	String publisher;
-	String language;
-	Integer pubYear;
-	Boolean isIssued;
-	
+	private String author;
+	private String publisher;
+	private String language;
+	private Integer pubYear;
+	private Boolean isIssued;	
 	public Book() {
 		
 	}
@@ -102,4 +102,5 @@ public class Book {
 		this.isIssued = isIssued;
 	}
 
+	
 }
