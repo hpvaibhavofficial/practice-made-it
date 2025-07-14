@@ -1,27 +1,27 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-bool detectCycle(vector<vector<int>> &adj, int n,vector<int> &vis,int src){
-    queue<pair<int,int>> q;
-    q.push({src,-1});
-    vis[src] = 1;
+// bool detectCycle(vector<vector<int>> &adj, int n,vector<int> &vis,int src){
+//     queue<pair<int,int>> q;
+//     q.push({src,-1});
+//     vis[src] = 1;
 
-    while(!q.empty()){
-        int node = q.front().first;
-        int parent  = q.front().second;
-        q.pop();
-        for(auto x : adj[node]){
-            if(!vis[x]){
-                q.push({x,node});
-                vis[x]=1;
-            } 
-            else if(x != parent){
-                return true;
-            }
-        }
-    }
-    return false;
-}
+//     while(!q.empty()){
+//         int node = q.front().first;
+//         int parent  = q.front().second;
+//         q.pop();
+//         for(auto x : adj[node]){
+//             if(!vis[x]){
+//                 q.push({x,node});
+//                 vis[x]=1;
+//             } 
+//             else if(x != parent){
+//                 return true;
+//             }
+//         }
+//     }
+//     return false;
+// }
 
 int main(){
     int n,m;
@@ -41,7 +41,7 @@ int main(){
 
     for(int i=0;i<n;i++){
         if(!vis[i]){
-            if(detectCycle(adj,n,vis,i)){
+            if(detectaCycle(adj,n,vis,i)){
                 cout<<"Cycle detected."<<endl;
                 return 0;
             }
@@ -62,3 +62,25 @@ int main(){
 // 4 1 
 
 //detect a cycle using bfs
+bool detectaCycle(vector<vector<int>> &adj, int n,vector<int> &vis,int src){
+    queue<pair<int,int>> q;
+    q.push({src,-1});
+    vis[src] =1;
+
+    while(!q.empty()){
+        int node = q.front().first;
+        int parent = q.front().second;
+        q.pop();
+        for(int x : adj[node]){
+            if(!vis[x]){
+                q.push({x,node});
+                vis[x]=1;
+            }
+            else if(x!=parent){
+                return true;
+            }
+        }
+    }
+    return false;
+
+}
