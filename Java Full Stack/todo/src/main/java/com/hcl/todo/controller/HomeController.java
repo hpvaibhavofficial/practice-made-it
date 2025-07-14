@@ -36,6 +36,7 @@ public class HomeController {
         if (userService.checkLogin(username, password)) {
             List<Todo> list = todoService.findAllByUsername(username);
             map.put("list", list); 
+            map.put("username", username);
             return "todos-view";    // go to todo view /webinf,todos-view.jsp
         }
         else {
