@@ -14,7 +14,6 @@ import com.hcl.todo.repo.UserRepository;
 import jakarta.transaction.Transactional;
 
 @Service
-
 public class UserServiceImpl implements UserService {
 	
 	private static final Logger log = LoggerFactory.getLogger(UserServiceImpl.class);
@@ -22,7 +21,7 @@ public class UserServiceImpl implements UserService {
 	UserRepository userrepo;
 	
 	@Override
-	
+	@Transactional
 	public User findByUsername(String username)
 	{
 		log.debug(" findBYUsername searching for {}",username);

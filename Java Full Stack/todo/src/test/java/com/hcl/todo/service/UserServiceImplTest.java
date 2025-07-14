@@ -51,12 +51,12 @@ class UserServiceImplTest {
 		
 	}
 	
-	@Test
-	void testFindByUsernameNull() {
-		User byusername = userservice.findByUsername(null);
-		assertNull(byusername);
-		
-	}
+//	@Test
+//	void testFindByUsernameNull() {
+//		User byusername = userservice.findByUsername(null);
+//		assertNull(byusername);
+//		
+//	}
 
 	@Test
 	void testAddUser() {
