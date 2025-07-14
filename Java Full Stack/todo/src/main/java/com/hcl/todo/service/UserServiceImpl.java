@@ -1,5 +1,6 @@
 package com.hcl.todo.service;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.slf4j.Logger;
@@ -63,5 +64,30 @@ public class UserServiceImpl implements UserService {
 			}
 		}
 		return false;
+	}
+
+	@Override
+	public List<User> findAll() {
+		// TODO Auto-generated method stub
+		return userrepo.findAll();
+	}
+
+	@Override
+	public boolean remove(User user) {
+		if(userrepo.findById(user.getUsername()) != null) {
+			userrepo.deleteById(user.getUsername());
+			return true;
+		}
+		return false;
+	}
+
+	@Override
+	public User updateUser(User user) {
+		if(userrepo.findById(user.getUsername()) != null) {
+			//if user is transient then  it can throw an error
+			userrepo.save(user);
+			return user;
+		}
+		return null;
 	}
 }

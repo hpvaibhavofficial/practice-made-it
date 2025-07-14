@@ -11,7 +11,7 @@
 	
 	<div>
 	<% String msg = (String) request.getAttribute("msg");
-	if( msg != null) a
+	if( msg != null) 
 		out.println(msg); 
 	%>
 	</div>
