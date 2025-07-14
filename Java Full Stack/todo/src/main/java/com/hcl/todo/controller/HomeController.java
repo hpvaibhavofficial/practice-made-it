@@ -1,17 +1,49 @@
 package com.hcl.todo.controller;
 
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import java.util.List;
+import java.util.Map;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.*;
+
+import com.hcl.todo.model.Todo;
+import com.hcl.todo.service.TodoService;
+import com.hcl.todo.service.UserService;
 
 @Controller
-//when i will have req of n=home page 
 public class HomeController {
-	
-	@GetMapping("/")
-	public String requestMethodName() {
-		return  "todohome";
-	}
-	//when furst req qill 
+
+    @Autowired
+    private UserService userService;
+
+    @Autowired
+    private TodoService todoService;
+
+    
+    @GetMapping("/")
+    public String showHomePage() {
+        return "todohome";  //we go to /webinf/views/todohome.jsp
+    }
+
+    // Handle login form submission
+    @PostMapping("/login")
+    public String loginPage(@RequestParam("username") String username,
+                            @RequestParam("password") String password,
+                            ModelMap map) {
+
+        if (userService.checkLogin(username, password)) {
+            List<Todo> list = todoService.findAllByUsername(username);
+            map.put("list", list); 
+            return "todos-view";    // go to todo view /webinf,todos-view.jsp
+        }
+        else {
+        	map.put("error", "Invalid credentials!");
+        	map.put(username,"username");
+            return "todohome";
+            
+        }
+         
+    }
 }

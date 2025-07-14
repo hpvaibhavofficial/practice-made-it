@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.hcl.todo.model.User;
+import com.hcl.todo.repo.ToDoRepository;
 import com.hcl.todo.repo.UserRepository;
 
 
@@ -15,10 +16,16 @@ import jakarta.transaction.Transactional;
 
 @Service
 public class UserServiceImpl implements UserService {
+
+    private final ToDoRepository toDoRepository;
 	
 	private static final Logger log = LoggerFactory.getLogger(UserServiceImpl.class);
 	@Autowired
 	UserRepository userrepo;
+
+    UserServiceImpl(ToDoRepository toDoRepository) {
+        this.toDoRepository = toDoRepository;
+    }
 	
 	@Override
 	@Transactional
@@ -44,5 +51,17 @@ public class UserServiceImpl implements UserService {
 		log.debug("trying to add user "+user.getUsername());
 		userrepo.save(user);
 		return user;
+	}
+
+	@Override
+	public boolean checkLogin(String username, String password) {
+		Optional<User> opt = userrepo.findById(username);
+		if(opt.isPresent()) {
+			String passIndB = opt.get().getPassword();
+			if(passIndB.equals(passIndB)) {
+				return true;
+			}
+		}
+		return false;
 	}
 }
