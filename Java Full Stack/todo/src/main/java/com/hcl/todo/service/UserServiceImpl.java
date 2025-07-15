@@ -1,6 +1,7 @@
 package com.hcl.todo.service;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 import org.slf4j.Logger;
@@ -90,4 +91,16 @@ public class UserServiceImpl implements UserService {
 		}
 		return null;
 	}
+
+	@Override
+	public User patchUser(Map<String, String> map) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+//	@ Override
+//	public User patchUser(Map<String, String> map) {
+//		// TODO Auto-generated method stub
+//		return null;
+//	}
 }

@@ -21,6 +21,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 @RestController //all methods of this class will return the object in the form of json
 //@Controller
+
+
 public class UserController {
 	@Autowired
 	UserService userservice;
@@ -62,18 +64,17 @@ public class UserController {
 	@PutMapping("/user")
 	public User putMName(@RequestBody User user) {
 		//TODO: process PUT request
-		
 		return userservice.updateUser(user);
 	}
 	
-	@PatchMapping
-	public User patchUser(@RequestBody Map<String,String> map) {
-		User user = new User();
-		if(map.containsKey("enabled")) user.setEnabled(Boolean.valueOf(map.get("enabled")));
-		if(map.containsKey("password")) user.setEnabled(Boolean.valueOf(map.get("password")));
-		
-	}
-	
+//	@PatchMapping
+//	public User patchUser(@RequestBody Map<String,String> map) {
+//		User user = new User();
+//		if(map.containsKey("enabled")) user.setEnabled(Boolean.valueOf(map.get("enabled")));
+//		if(map.containsKey("password")) user.setEnabled(Boolean.valueOf(map.get("password")));
+//		
+//	}
+//	
 
 
 
