@@ -10,5 +10,12 @@
 <h2> Welcome <%=request.getAttribute("username")%></h2>
 <h3> ToDo list</h3>
 <%=request.getAttribute("list") %>
+
+<form action="/todo" method ="post">
+	<input type = "text"> name = "description"/>
+	<input type = "date"> name = "Date"/>
+		
+	</form>
+
 </body>
 </html>

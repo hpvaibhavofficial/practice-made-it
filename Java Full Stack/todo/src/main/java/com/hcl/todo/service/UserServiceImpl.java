@@ -94,13 +94,11 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public User patchUser(Map<String, String> map) {
-		// TODO Auto-generated method stub
-		return null;
+		User user= userrepo.findById(map.get("username")).get();
+		
+		if(map.containsKey("enabled")) user.setEnabled(Boolean.valueOf(map.get("enabled")));
+		if(map.containsKey("password")) user.setPassword(map.get("password")) ;
+		return user;
 	}
 
-//	@ Override
-//	public User patchUser(Map<String, String> map) {
-//		// TODO Auto-generated method stub
-//		return null;
-//	}
 }

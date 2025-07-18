@@ -1,5 +1,6 @@
 package com.hcl.todo.controller;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -11,6 +12,9 @@ import org.springframework.web.bind.annotation.*;
 import com.hcl.todo.model.Todo;
 import com.hcl.todo.service.TodoService;
 import com.hcl.todo.service.UserService;
+
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpSession;
 
 @Controller
 public class HomeController {
@@ -31,9 +35,15 @@ public class HomeController {
     @PostMapping("/login")
     public String loginPage(@RequestParam("username") String username,
                             @RequestParam("password") String password,
-                            ModelMap map) {
+                            ModelMap map,HttpServletRequest request) {
 
         if (userService.checkLogin(username, password)) {
+        	
+        	HttpSession session = request.getSession();
+        	session.setAttribute("useername ",username);
+        	session.setAttribute("loginTime ",new Date());
+        	session.setAttribute("ipadddress",request.getRemoteAddr());
+        	
             List<Todo> list = todoService.findAllByUsername(username);
             map.put("list", list); 
             map.put("username", username);
