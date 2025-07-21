@@ -22,14 +22,18 @@ import jakarta.servlet.http.HttpSession;
 
 @Controller
 public class HomeController {
+	
 	@Autowired
 	UserService userService;
+	
 	@Autowired 
 	TodoService todoService;
+	
 	@RequestMapping(path="/", method=RequestMethod.GET)
 	public String requestMethodName() {
 		return "todohome"; // go to /WEB-INF/views/todohome.jsp
 	}
+	
 	@PostMapping("/login")
 	public String loginPage(@RequestParam("username") String username, 
 			@RequestParam("password") String password, ModelMap map, 
@@ -55,6 +59,7 @@ public class HomeController {
 	
 	@GetMapping("/mytodo")
 	@ResponseBody
+	
 	public String getMyTodos()
 	{
 		return "list of todos";

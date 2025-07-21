@@ -1,5 +1,4 @@
 package com.hcl.todo.controller;
-
 import java.util.List;
 import java.util.Map;
 
@@ -10,6 +9,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.provisioning.JdbcUserDetailsManager;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.SessionAttribute;
@@ -36,6 +37,8 @@ import jakarta.servlet.http.HttpSession;
 
 @RestController 
 @RequestMapping("/api")
+@CrossOrigin(origins = {"http://localhost:5500", "http://127.0.0.1:5500", "*"} ,
+methods = { RequestMethod.GET, RequestMethod.POST, RequestMethod.DELETE, RequestMethod.PUT})
 public class UserController {
 	private static final Logger log = LoggerFactory.getLogger(UserController.class);
 	@Autowired
@@ -50,13 +53,6 @@ public class UserController {
 	@GetMapping(path="/user", produces="application/json")
 	public User getUser(@RequestParam("username") String username, HttpServletRequest request)
 	{
-//		Enumeration<String> headerNames = request.getHeaderNames();
-//		while(headerNames.hasMoreElements())
-//		{
-//			String headerName = headerNames.nextElement();
-//			String headerValue = request.getHeader(headerName);
-//			System.out.println(headerName + ": " + headerValue);
-//		}
 		return userService.findByUsername(username); //returns name of view 
 	}
 	@GetMapping("/qualification" )
@@ -130,12 +126,13 @@ public class UserController {
 	}
 	@GetMapping("/current-user")
 	public String getMethodName(Authentication auth) {
-		User user = (User) auth.getPrincipal();
-		return user.getUsername();
+		if(auth != null && auth.isAuthenticated())
+		{
+			org.springframework.security.core.userdetails.User user = (org.springframework.security.core.userdetails.User) auth.getPrincipal();
+			return user.getUsername();
+		}
+		return "NO User";
 	}
-	
-
-	
 	
 
 }

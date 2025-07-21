@@ -1,4 +1,4 @@
-package com.hcl.todo;
+package com.hcl.todo.security;
 
 
 import java.util.Arrays;
@@ -35,6 +35,14 @@ public class SecurityConfig {
 	@Autowired
 	private DataSource dataSource;
 	
+	@Autowired
+	CustomAuthenticationFailureHandler failureHandler;
+	@Autowired
+	CustomAuthenticationSuccessHandler successHandler;
+	
+	@Autowired
+	CustomLogoutSuccessHandler logoutHandler;
+	
 	@Bean
 	JdbcUserDetailsManager users() {
 		JdbcUserDetailsManager jdbcUserDetailsManager = new JdbcUserDetailsManager(dataSource);
@@ -46,20 +54,26 @@ public class SecurityConfig {
 	public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
 
 		http.csrf(AbstractHttpConfigurer::disable)
+		.cors(cors -> cors.configurationSource(corsConfigurationSource()) )	
 		.authorizeHttpRequests(auth ->
 		auth
 		.dispatcherTypeMatchers(DispatcherType.FORWARD).permitAll()
-		.requestMatchers("/", "/user", "/register").permitAll()
+		.requestMatchers("/", "/user", "/register", "/login", "/api/current-user").permitAll()
 		.requestMatchers("/admin/**").hasRole("ADMIN")
 		.requestMatchers("/user/**").hasAnyRole("ADMIN", "USER")
 		.anyRequest().authenticated()	) 
 
 		.userDetailsService(users())
-		.formLogin((form) -> form.permitAll().defaultSuccessUrl("/"))
-		.logout((logout) -> logout.permitAll())
-		.cors(cors -> cors.configurationSource(corsConfigurationSource()));
-		return 
-				http.build();
+		.formLogin(
+				form -> form.loginPage("/login").permitAll()
+				.successHandler(successHandler)
+//				.defaultSuccessUrl("/")
+				.failureHandler(failureHandler)
+				)
+				.logout(logout -> logout.permitAll()
+						.logoutSuccessHandler(logoutHandler)
+						);
+		return http.build();
 	}
 
 	@Bean
@@ -70,12 +84,12 @@ public class SecurityConfig {
 	@Bean
 	public CorsConfigurationSource corsConfigurationSource() {
 		CorsConfiguration configuration = new CorsConfiguration();
-		configuration.setAllowedOrigins(Arrays.asList("http://localhost:3000", "https://your-frontend-domain.com", "*")); // Allowed origins
+		configuration.setAllowedOrigins(Arrays.asList("http://localhost:5500", "https://your-frontend-domain.com", "*")); // Allowed origins
 		configuration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS")); // Allowed methods
 		configuration.setAllowedHeaders(Arrays.asList("*")); // Allowed headers
 		configuration.setAllowCredentials(true); // Allow sending credentials (cookies, HTTP authentication)
 		UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
-		source.registerCorsConfiguration("/**", configuration); // Apply CORS to all paths
+		source.registerCorsConfiguration("/", configuration); // Apply CORS to all paths
 		return source;
 	}
 

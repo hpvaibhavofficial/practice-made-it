@@ -13,7 +13,5 @@ public interface ToDoRepository extends JpaRepository<Todo, Integer>{
 	@Query("select t from Todo t where t.user.username = :username")
 	List<Todo> findAllByUsername(String username);
 	
-
-
 }
 											
