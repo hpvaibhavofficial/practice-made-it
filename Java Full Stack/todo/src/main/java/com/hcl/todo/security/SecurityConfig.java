@@ -58,7 +58,7 @@ public class SecurityConfig {
 		.authorizeHttpRequests(auth ->
 		auth
 		.dispatcherTypeMatchers(DispatcherType.FORWARD).permitAll()
-		.requestMatchers("/", "/user", "/register", "/login", "/api/current-user").permitAll()
+		.requestMatchers("/", "/user", "/register", "/register/**", "/login", "/api/current-user").permitAll()
 		.requestMatchers("/admin/**").hasRole("ADMIN")
 		.requestMatchers("/user/**").hasAnyRole("ADMIN", "USER")
 		.anyRequest().authenticated()	) 
