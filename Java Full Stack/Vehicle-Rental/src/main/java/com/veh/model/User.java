@@ -1,56 +1,45 @@
 package com.veh.model;
 
-import com.veh.model.enums.UserRole;
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.Table;
 
-import jakarta.persistence.*;
-import java.time.LocalDateTime;
+import java.time.LocalDate;
+import java.util.List;
 
 @Entity
-@Table(name = "users")
+@Table(name = "users") 
 public class User {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    private Integer uid;
     private String name;
-
     @Column(unique = true, nullable = false)
     private String email;
-
     private String phone;
-
     private String password;
-
-    @Column(name = "driving_license_no", nullable = false, unique = true)
+    
+    @Column(name = "driving_license_no", nullable = false)
     private String drivingLicenseNo;
+    private LocalDate licenseExpiry;
+    private Double tollBalance;
+    private Boolean isActive;
 
-    private String address;
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    private List<Booking> bookings;
 
-    @Enumerated(EnumType.STRING)
-    private UserRole role = UserRole.USER; // default role
-
-    private LocalDateTime createdAt = LocalDateTime.now();
-
-    // Constructors
-    public User() {}
-
-    public User(String name, String email, String phone, String password,
-                String drivingLicenseNo, String address, UserRole role) {
-        this.name = name;
-        this.email = email;
-        this.phone = phone;
-        this.password = password;
-        this.drivingLicenseNo = drivingLicenseNo;
-        this.address = address;
-        this.role = role != null ? role : UserRole.USER;
-        this.createdAt = LocalDateTime.now();
+    public Integer getId() {
+        return uid;
     }
 
-    // Getters and Setters
-
-    public Long getId() {
-        return id;
+    public void setId(Integer id) {
+        this.uid = id;
     }
 
     public String getName() {
@@ -93,27 +82,44 @@ public class User {
         this.drivingLicenseNo = drivingLicenseNo;
     }
 
-    public String getAddress() {
-        return address;
+    public LocalDate getLicenseExpiry() {
+        return licenseExpiry;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
+    public void setLicenseExpiry(LocalDate licenseExpiry) {
+        this.licenseExpiry = licenseExpiry;
     }
 
-    public UserRole getRole() {
-        return role;
+    public Double getTollBalance() {
+        return tollBalance;
     }
 
-    public void setRole(UserRole role) {
-        this.role = role;
+    public void setTollBalance(Double tollBalance) {
+        this.tollBalance = tollBalance;
     }
 
-    public LocalDateTime getCreatedAt() {
-        return createdAt;
+    public Boolean getIsActive() {
+        return isActive;
     }
 
-    public void setCreatedAt(LocalDateTime createdAt) {
-        this.createdAt = createdAt;
+    public void setIsActive(Boolean active) {
+        isActive = active;
     }
+
+    public List<Booking> getBookings() {
+        return bookings;
+    }
+
+    public void setBookings(List<Booking> bookings) {
+        this.bookings = bookings;
+    }
+
+	@Override
+	public String toString() {
+		return "User [id=" + uid + ", name=" + name + ", email=" + email + ", phone=" + phone + ", password=" + password
+				+ ", drivingLicenseNo=" + drivingLicenseNo + ", licenseExpiry=" + licenseExpiry + ", tollBalance="
+				+ tollBalance + ", isActive=" + isActive + "]";
+	}
+
+    
 }

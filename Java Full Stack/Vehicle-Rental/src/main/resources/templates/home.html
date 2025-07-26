@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vroom Rentals - Home</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        /* Navbar */
+        .navbar {
+            background-color: #2c3e50;
+            color: #fff;
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .nav-links a:hover {
+            text-decoration: underline;
+        }
+
+        .container {
+            padding: 30px;
+        }
+
+        .section-title {
+            font-size: 22px;
+            margin-bottom: 10px;
+        }
+
+        .cards {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            width: 300px;
+            transition: transform 0.3s;
+        }
+
+        .card:hover {
+            transform: scale(1.03);
+        }
+
+        .card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+
+        .card-content {
+            padding: 15px;
+        }
+
+        .card-content h3 {
+            margin: 0 0 10px;
+            font-size: 18px;
+        }
+
+        .card-content p {
+            margin: 0;
+            font-size: 14px;
+            color: #555;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="navbar">
+    <h1>Vroom Rentals</h1>
+    <div class="nav-links">
+        <a href="/">Home</a>
+        <a href="#">Vehicles</a>
+        <a href="#">Bookings</a>
+        <a href="/login">Login</a>
+        <a href="/register">Signup</a>
+    </div>
+</div>
+
+<div class="container">
+    <h2 class="section-title">Available Cars</h2>
+    <div class="cards">
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=800&q=80" alt="Car">
+            <div class="card-content">
+                <h3>Hyundai i20</h3>
+                <p>₹500/day · Petrol · 5 Seater</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="https://static3.toyotabharat.com/images/showroom/innova-hycross/sparkling-black-pearl-crystal-shine.png" alt="Car">
+            <div class="card-content">
+                <h3>Toyota Innova Crysta</h3>
+                <p>₹1000/day · Diesel · 7 Seater</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBwgHBgkIBwgKCgkLDRYPDQwMDRsUFRAWIB0iIiAdHx8kKDQsJCYxJx8fLT0tMTU3Ojo6Iys/RD84QzQ5OjcBCgoKDQwNGg8PGjclHyU3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3N//AABEIAJQA+gMBIgACEQEDEQH/xAAcAAABBQEBAQAAAAAAAAAAAAACAAEDBAUGBwj/xABIEAABAwIDBQQGBggEBAcAAAABAAIDBBEFEiEGEzFBUWFxgZEUIjJSodEjQlNiscEVFjNygpLh8AckQ/FjorLSNERkc4STlP/EABoBAAMBAQEBAAAAAAAAAAAAAAABAgMEBQb/xAAuEQACAgEDAwMBBwUAAAAAAAAAAQIRAwQSEyExQQVRUmEUFSIyQoGRM0NTcbH/2gAMAwEAAhEDEQA/AO9zpi5UxK4pGVw4ghejx0eLzWW8yIOVLemydsp6o2AsqLueyReqgkRh6WyilkssZk4dooWuupAlQ02GHKaMIYmNIFwPNTscwaZQsZTOmEH3JGsUmSwQxtBtYqUnKL9FzuR1KNIjLCeRQuaWi9lKye/P4IpHgt1sUKTDamV8xTtkI5JCVjdMgRCQP428lW5C2sffa8EQqCNAAmayO1yUnNZwalcR1IRle5SNjltexshYS3SwU7ahwbbKocvYcY33Gu8cUQc46IQ9x4hPd3uqdxpQiCNSmJ6FI5kOUk6oEMb9UhfvRZLJwEABZOGo7apwErHQOVOGo7JwErChmtTpwE+UoHRwzTfnZSsN9HG/eoshPBqmbFJxyley5I+fjGV9hngDgmHcEW6dfW/kjbCT/spU0U8bfgjaNeKtQwl/EIWwG+qsRh7e5RPJa6M2x4/dBCFuXtQOjI4KwyMuN8vxU25tyFu9czyUdSxplKzgBYFOzPzNuq0WMZbUcOKx8Zxylw8uhia18x5DXL/fRZvKdEMLNONxaxzzfI3i7kjz5+AK862pxOopY8OmjramOerj3kjmOtpfQW6dgWbBtPiEDAx2MTG3WOMfANAUqLfU22wXTceojM1xubIXyOLuNgvNv1wxHQNxOQ98TD+StwbXYidDW5+x0LPkqqQuOHyO+FypGi64un2uqr2k3Lu+K34Fa9LtNvSAYYr9jyPmk1L2FsS7M6JrdOaNjSqEOJ5y21MH34gSgadilixK0hbNS1MTfqvLc7T4tuoaaK2svhp6I236KOGoZMwPhe17L2uD5qUuJ4aLO6Ae56JZuxDd3VEiwHzFMblOnCLFQIBRBpTp0WOhBqJrUyIApWMKwThreia3anDSkMcAJ9ErdqVu1OwOTbTkKeMuZyB70dgiaAeK2lmvuckcVdhbwni1tu5SNEZGrWpi0ck2VZua8Gu1+STdRu4CyfcMHNC0FSNGnFRva8lbE/AIjb1FkQY3kdErWKzNqsYZgmA1VbI7JkaGtcG3sXGw+JGqXIXHGm0iltJjfokhw+j/APEuYHPfqcjTy7z8/Dh6qoyySkudlb6t3c+3xN1xVXtG+qmfLJXzZnH1rvU2GYnTkyOq5ZpIXWta51v18VScm6aO/LpMWPHuhkTfsbm307jS4KcxFqVjXN81yonIWltfisOKUtDUwAsYxu7NzzAF/ibLnIahjngSOfbpHYk+a6bVHnU2+hqsqeisx1R7lnNfTP8AYbWeTD8lO2lq93vWUtS+E/X3fDyulvS8l8GV9VFmrDVuH1r961aOveCBcknpquWje9rvZf4t+S08HxFtLUOM2cNP/DOnwT5F7g9Nl+L/AIO0pcRkidaQuBGtiF1uH1jgxjmS5iRey8yqcXppAx4e7Nwd6p4LYwLaCnji3Us7Whvsl2mie5MjhyL9LPQXtkmkFVQStgrmkGRrheOob7rx3cHDUfeF2m/h1eyua8ZXRVEZtNA/2oz+Y6EaFctSY1RSluWrhuOYeFfnLa7d1VBVQwYlB+xl9prvuvAOrD5jiLLKcU+w+q7nTgJw1c7g21sGIVtRQVVHNQVtMBvopXNI15tIPrDtsF0jCCARqCLgrnfR0W4NJMayK2iScJbgoYBEnsnsnYUME9ynAATosBhdPr1STosB7pXTAJWRYjngiaoBUR9R5pelRjgB5rG5F7UWNeqIFVBVtOlh/Mi9KYONh4pfiGlEthyfOFT9Li94eaXpcXvD+ZL8Q1Rdz9LLl9rMUwqoi/R1ZPE+NxtJFmvmPK1tbg6rRxWvbHh85jc3M5ha255leU1WF58SdWmrihkuCz0SLKGkc+PHtTi66npaHR8zcmuhoVlVs3hr93Jhrs4Gmams49ziAVQxraWirMLfQ4fh+6c8WL5jfKPui5sUclHR1Mu9r6uqq3+/LKfJNIzCKZzN1E1h5EAvd39yt5W+qPYx+n41Fboog2Vq30jX05o21AbyETQQTzJOpXWCFuKRsihw2B0xBOSRjbkALnot3StaIHteHamT3z1WrR1zzEJIpTFNHqx7OLUQnb/F2NdRpNmLdhirGOGT0Tg04LB6xs0GkzA+IBQR4oaKQ5MCponX4xwmNRVWO7QxuIirXSx+86DW/YbLTg/xCxKKFra6jpZy0Wu4AE9pRml8OxwRyZ/7mNN/RlJ2093l0dK2M+7kBaf77EB2weP/ACjO27QrdJtlhEbXtxPAIXxZjkLLXaOl7armMSxHAsRxpposMq3RTN3YpmTbs7y/quaQSCD0NlOPkk6KnrMOP+pjo2/12cNPQo3DuHyRx7btbqcNi+HyWDNh9LAWvds1j+WNwMzZnFrS3gfWBNj22RS4PRsieDsvtFHMGmxN3MB7Tm/JdXFP5HL97aT/ABM6Ebb07vawmE+DVKzbembbLhMYt0a1YEWGYQ6Nr5NldpGh7Q8GK72kHmDmGngrOGYNs/MZWV1NiFNK1kkzInyv3piZqSWNvbTTUi54XSeLL8g+89A++F/ybrdscOlnE0uEgy2y5zGy9unFblJt9TZWtMRY0aBpbw8iuBrcEwaalpa7CG4sKdtQ1lU2XMx7mEf6Ydo53OwKq4zS4PT00b8Kk2ha/etbKKunytawn1iNL3t3rPizfJClrPTZquJr9z16m2woZgDpc8r2WrR4xSVZs0uab2ueC8Qrhh9NLSforGsWcySYNmdVUBZume8PVGY9gXX7GYsItoxh0mLiuoZYHObJJSGE5hy9bVLjnHucmV6KafDd/U9SBTqq6dkbG2IawcyQEAr6c/6zP5gobo4qLqe6o+nQcpmfzJ/ToL6zN/mS3C2l7RK6piup/tm+af02n+1Z5qtwqLgSVQVtP9u3zT+nU/2rfNPcgo8amigLGfSFpMRcSHHUgXvxVltFDIBq4Aj7Qjkp52YfM20lPGdCNBZSCGiePo3yMBHBknBeosy8xOKWll4kUIqSAx5HSOzNJbcSH1rHjxQVFCxkD5I5JfUGYjen1gNSOK0IaAsjG7rCDro9odzVfEaOrdSSMY+nfmGUkNsbFVz4/KI+y5rtMr1eHfQSS008ola0ub9Pe9hexHaigomVNMyeKapDZWhwvKdPgpK2Othon/5NrjkLc8co0042JUVLvqbD4GPpqqzWC+QafimsmJkyw51EwcVrqigqTC6WRwYPpMxBLidQR4EXWJLisheRrbvV7G2CpxKrqXskDxE0QZ9NLAOJ8gudcfWPVebqIReRtH1vpOqnHT8b7o0BiEinjxOlpY2y1t3OkOgAJygdyx79qt4XQxYlWl1W/LBAAxrQbF7jyv0UY8UbNfUNblWKkzc3jDcxPuxwzsI5hamA1kbcQpWy+s0zMBuLjjZczTkU7zTtvkjf6g6NPJXYh9I4G9jzBsQsMi48h63p+V63RNS/N1R7Rstgnp2Fek12ITyyyvcLRvs2PUi1uuguuRx+ixugraqKB7pIIeMr2C1jwuSLa8FnUW0c9IJHU89XBLNrN6PK0Me73srgbE87LJrqiaqz58TxUNk9pl2PafDOF2ckH5PlJ+m6yD6wY9W6Kuw9lQ5rBK2V0EuRtg8WDgdPELiJo3QzPa02MbiGm9iCDoQusp/8vSOp2mWUumErnyRtYGgNIto91ybrm8QaBXVFzxdc9TolBrkaXsb6nFlWhi8iakm119u//Teir4nUM1NJiW1MEbmkNge1srHgjmbjT8lNheMRwQOYcc2qpAbOyCATAkjje40WbQY2IaUxux7GoCWAGJrWytJy2IBLhZvIdiLDcbEMRa3HscpgGtGVsbJRw5XIsB0W55FGrheNikYWR7Q7S0fXd0m9a/8AdGbQdisUePUsdRUvq8VxeSWZpj9P/R1pCw6lps67de/ksmgxOVhcY8Xx6IOJs6KBsgfqeAJ9Xrp2qSLEaltTJKMS2ga5xvvW0zfW0HFh0B7boA0MQxvDIsMooaOqxSompajfRvqaZ4yOJHrkk+sWj2W/7occ2hkraARS7TYpiH0jXbqTCzC3Q3uXZjwt4rNxSvqaqnDP0hjlXZ4dlmpWtaNeIy3ueiPE6+srKPdir2gqfWByT0jWMFjx01SA0sVx59c6hEm0NfWCGdr2bzCzEIrfW9r1rdFGcUlqduKOpfXzVm7htvX0u4tcjTLr5rLrcb309KyTE8XlML8xFSyNm7tbUAc+l1RxDGX/AKcbWUz6qrIYG5qoDMf5dLJSLina6H0I47/ZmrqhCXyRxGRrWk3fbVcKdpJ2e1g1WByuyS//AELW2b2wiiwVkLcNr56uRnrRRwnKTbgFJFHLK27YmAgC59k36WKWF749CtZingl+NdzFbtRclrsJrLj7kn/Yi/Wpg1OG1QHbm/Nq3BHIGfSRRNN/tD8kDiA05oyO30jitthyb17GONsKYaPo529/+wTjbGhGhgmAP3h81tfRloIbISeszfzKTvZBYxwAOt5GfNQ4MrevYxxtphgLbxzDrqPmj/XTCfs5fMfNa7IW+s6WGoAPAttIP+W6W6g6S/8A0/0UuD9y98fY5kvHujwSL2O45bdFWIHvfFKzP7Kds6dpabI1vsuI7np3TPItmaR2lVMsY5fFOMnS6e4Npckqnbsh7DY82uU0GIxZAC8iwtzWfdnNpCNrm2tql0FTMbH4hNJiMzXizIItAON3P+QWDQ4MK2lM1SXxXAEeUDUdVu47JTMjxHM60r6dha3TW28PNcNSYpVUNhFI4M9292+R0UuNhjzzxt15Nip2broyXU5ZUNA9lpAf5Hilg9OJKlkVQ4xhjTmY64Lnm4Hla/krFHtSLMNZTvDXXtIwGziOl+PgVpYK6jxCuxVxy5pGMdTvcy+ZzeLR2kFKMaKy6iWSCjIwK55gxFpNrltjbgSOnYrT6hrog4tLSBc5eapY6wMq3Br2P3ehLHXDSOIv2cNOighnJgcCbkg+Cx1ELo9j0XVPFGcP3LEVfDMCWPmNuNlIKuPgZKgeF/zWLSXZmFidfraKVx7G+CrgiYffWqvsv4NT0uEHWWfxaozU0xcXOa5xPElqzc4HHL5pnOBH1fNPgiuqE/WtQ/zRT/Y1G1VGR6rCf4ETpqQsIMZFxbUAWWKCeFwOy+qMMcRfO7u1KOGKfcT9WzONbI9foe+/4V4nhtNsjAKyupIpBI+wmma11r6cSusdtDgLPaxnDR/8pnzXyxuS4C5cSPuovR+hee8LSjy9kn1o+ojtZs83jj2HDuqW/NRu2y2cDrHHqG/QTAr5gfTvyXEUgvyy2TNh1GZrR1zOCXQrhm/0s6uuxFrcQqt1HHIwzPLX39oXOqhbjEmbKIYgeoXNxRneC2Qj98ErRoaCp3jzHTSvzEG7I3O/ALN44dz0Ya7WwgopUl9DucFxbEo2h8dVDGSOYv8AitvB68Yjh1NWVDqSWedm8kNgTcnjoPyWHhWDYp6PmNJNA0sJ3k+WJo7fXP5LRw/DIY6OGC2GzmBgj3l43B1uYI4rXAox7Hna7Lmy9Zm63enJu4WCMi942uFvgjbFI5x3jHFl/qm1vG6yv0RG5xcKKEN92Kcs8rFWBQxxM0NdHcWa1tUdPMrq7nnI04w1vs74X96Xj8Smzu3odncO0gm3jayyGte1zgzFqphBF8zWnL33CZpleSz9Mwuk5h8LdR5jTtUFo2IX2Prytbr1b+dlLvf/AFI/5VmxuxEBz4paKoDnesDG5v5myidXVzXFppsLuDb9u/5KaLRzxlvzagdJb6zfJc67E5B9Vn8qhdis/ItHc1Zo7mzpd6ffaU5nFvaXLHFqm3t/BRvxSqP+qR3CyZNnV78e/bwS39+Bzdy411fVPP7aTwNlE+qqSPWlk8XFAWbm01a2HD6kOAJqI2xi41FnX0PmuGLhfUnyWjO184tI9zh2m6rGlAsRfRBk11OzwSSKLA6enmMTmFl3MfYjXqE+FsYyer3eVtO2bRt7AXZYWPLmLdpXFZNdTr2rfwCmqK2OSmgmZG15a4tcfbLQ42A62B8wmDB2nZJBiM8E8cUcjNLRD1SDqD4gg+KpzY1JLC1j6eluPrNjDT5pbQVb6yuErwM26Y11je+VoF+/RZHVJqxKTT6Oi4a/lu2jxUtNNJUztjiYMx7dAOpVGNwtYtbbuUrXD6oAPYnSNOTJ8js6WmwQQsE1PLNKB68hqi0E9gtoFb9FwJtsuE1Mnb6ZYfFcIXcy63cVYhbQvtvd6PvAgpNL2Hy5Pkztw3BGafoNvc/EP6o2Vmy0Y9fCqVr+Y37nD8VysOGYfKPo53u7L2/JWP0NTtIOV5/i/ohKweTIvLOm/SeAaOiw7CGs/wCK997+aRx3Am8KPAf/AM73fiueZQUA0fA53aZCtKjosGPt0gP7z3fNG0FOT8l4bTYSw6U+DAdmFg/iE/67U0DQad1G0+7FhsbfySkwjBqimljjoadkj2ENkA1aeRuV5w8T0dS6KQDexPIcHcWn5KUiZNo9Lf8A4keqWCWePtjja0j4KF3+IshsBW4oR/7oAXmTrWsOqccAANeXanSJ3Wekuxc7WwmneXZY5WOMr7vObX4hdF+q9NwYbgcLPsVhbKYccLwyGKZn07zvJB0vwC7GKcFouCP4Fzzu+h0RquxjO2VLdYnvYeoeLpm4NiVP+yxCoaObS9xB+K6Jko5afBTNkdxI8yFG6a7MbjF90c0047TWDK5r7cntOvwRnEsWDmGSlgkew+q5g+C6YPBGuVMGwE3s2/ZZPmyInig/BzsWMMY3/M4ZOBfNmjhHHvAUzsW2fe4vdQ1eZxufoufkt4wxO1JffrcoPRo/tHeaX2iYuGB4g6RRucncEFv7susQJcmzHqiLU2RAAE34oT2KQt/u6GyYiFwKicCrRA/sISy/+wQKipl+78VewiufQVInhmkhlZcxysdYtJFtCoXMPb8FDJE54sCU7JZDWSiSdzhoBwtooMykNLJ1CQpyNSgmhmDTVFbTRHuzZOGFFjSIwCiDnN+sfNFkT5D0ulY6HDvHwurMFdUQC0czmjoeHkVWyn3QnDT7oSGacWMTN/aBkg8lMMbt7NMPF5+Sx9eaJrT97zQH+zVfjtS39nGweJKycTrJ6+RsksLA8C2dosSO3XVSCI82X77qaKne4jLF4DS/4ov3FVmS2OQ8Wrrdl6ehgyVVRTyOnBu3eHQHqB81YwvC27vPNTNjdyLnFx8lsxUgDbBzmjs0CHJDUGaDcRifYkuPgVdZiMZADW3/AIiViGhZ9ob9pUkcD4vZd5FTtiy7kjeZV5uEYHblH5qdkh5Hydb8FgsqJY+LS7tViPEOT2O8lLg/A1JeTbEj/e81I2Q9p81lR18dvrK1FUl3Bht/fYsWpGi2mg2YI9/3KjeR3CG3cUvpPsviFnRVHkRP7yYn+7oiEJau4wBSunypAJgNdDa6LRPZIRGWIcmqmOiYuHIp9QsiLEt2iJPQobv7EUxNoYwoSxGC48CfBLc5uP4/0RVCIcoHFOA08ArTKN7vZzH91v8ARTMw2Z2m7f8AxaI6BTKOVqbJfgFsR4RJzbEO8q1HhQ+vJ4NF0rRW1nPiJ3unxNkbacu5C/YLrqIMPpmcY8x6kG34q4yBrdGNa0dGgD8kmx7TlIMMqJfZieR5BXoNn5ne3kj8LldEGO7fFyJrD2+RUbmVtRlR4BEz2s7vEW/BXYKRkGjQG/mrgaedvJGAw8L+BSse1ETWMPG/eFK2NnIuKLdstwN+punERGobfwSGG2nbx18SpGtb7o8bKG7m8BbxCMSk8vilQ7LDQzgWjy/opo4o9fVFu4/NV2SE6FrvxU7AO4eCl2NUx3QMI0cxvkoXQyN/ZynzVgdAbjtKL6Ts+Kncx0ioZamLm89103p1T0f5q4SeH4NCHI/3vwTUl7C2nmZb2lDYdEkl1GJE4i9soRgAtSSTAryvc0gApDUXKSSokFxIdYI2guOrj4JJJsSJGwsJ1ue8q5BRwnkkkpZRoxYZTD6pU4o6eNpLYxp1TpKSkIEMZdrG+SswtDxfgewJJIGEW25lC7TiL96SSAYwf91vkpo/WaDcjsCdJJjD4dT3lHp0CSSzGIG5GgUpZZpIJ05JJJDBY4kqcOsOA8QkkgB2uLjbh3KbdAi5JKdJAwMrenxSADeACSSTGghK69hYeCsbx4aLnNpzSSWbGHFK55sbDuCsbodT5BJJQB//2Q==" alt="Car">
+            <div class="card-content">
+                <h3>Maruti Suzuki Swift</h3>
+                <p>₹450/day · Petrol · 5 Seater</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="https://stimg.cardekho.com/images/carexteriorimages/630x420/Honda/City/12667/1750410975226/front-left-side-47.jpg?tr=w-360" alt="Car">
+            <div class="card-content">
+                <h3>Honda City</h3>
+                <p>₹700/day · Petrol · 5 Seater</p>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+</body>
+</html>
