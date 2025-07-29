@@ -36,7 +36,7 @@
 // }
 
 
-interface DailyDairies{
+interface DailyDiaries{
     void ReadDiary();
     static void DrinkThenRead(){
         System.out.println("I am drinking water.Now i'll read after it.");
@@ -44,9 +44,40 @@ interface DailyDairies{
     default void makeabookmark(){
         System.out.println("Bookmark Added.");
     }
+    //void ReadDiaryLouder();
 }
 
 class Diary implements DailyDiaries{
     
+    public void ReadDiary(){
+        System.out.println("HI i am reading diary.");
+    }
+
+    static void DrinkThenRead(){
+        System.out.println("I am drink and read of class. But i am not overridden i am a separate method which is acceessiblee via cclass only.");
+    }
+
+    public void makeabookmark(){
+        System.out.println("I am overriden method of Diary class.");
+    }
+
+
 }
+
+public class InterafaceDemo{
+    public static void main(String[] args) {
+        DailyDiaries obj = new Diary();
+        obj.ReadDiary();
+        obj.makeabookmark();
+        DailyDiaries.DrinkThenRead();
+        Diary.DrinkThenRead();
+        
+        DailyDiaries ob = new DailyDiaries(){
+            public void ReadDiary(){
+               System.out.println("Reading diary from anonymous class.");
+            }
+        };
+        ob.makeabookmark();
+        }
+} 
 
