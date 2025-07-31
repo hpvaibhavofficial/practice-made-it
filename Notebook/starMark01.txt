@@ -1,0 +1,75 @@
+HTML stands for Hyper Text Markup Language.Used to create web pages.It tells the browser that what to display and how to display the content.
+
+Inline element -> tags that start from sam line liker <a>
+Block element -> tags that start from next line
+(To changee its beehaviour wee can do it by applying css.
+
+Semantic Tags -> 
+DOM -> Document Object Model
+ (a tree like stucture) that browser creats from  html elemnts of  doument. root of page is documnent.
+BOM -> Browser Object Model (parnt of documnet is window 
+JavaScript is a single thraded language
+promise is object that does some processing and calls either : resolve or reject.
+
+------------------------------------------------------------------------------------------------------
+maven gradle are project management tools.
+snapshot means on the basis of errors we resolv means not stable.
+
+bean is an object created by spring 
+--------------------------------------------------------------------------------------------------
+what does hibernate do 
+how to generate primary key in hibernate 
+wjat is persistence 
+lkey generation strategy (sequence , table uses diff table updated every time ,identitywhen there is auto increment indb identyty is chosen , auto mostly chpooses sequence, best for good performace in hibernate 
+we can generate own sequence 
+bad is identity )
+-------------------------------------------------------------------------------------------
+fetch lazy and eager 
+-------------------------------------------------------------------------------------------
+Objects of hibernate are called persistant objects. and other are transient objects.
+-------------------------------------------------------------------------------------------
+association mapping
+one to one  - eager
+many to one - eager
+many to many - lazy
+one to many - lazy
+-------------------------------------------------------------------------------------------
+Hibernate Inheritence mapping
+-> Single Table : @Inheritance(Strategy = InheritanceType.SINGLE_TABLE) only one table with type extra col to store type.
+-> Table per Cocrete class : creates different tables for different classes
+-> joined -> 
+---------------------------------------------------------------------------------------------
+spring basis -- 
+------------------------------------------------------------------------------------------------------
+Bean ->  objeecct ccreated by the spring
+-----------------------------------------------------------------------------
+Dependency Injeection -> one module shouldd be dependent on abstraction of another moddule not the implemeentation of other module.
+
+search the bean 
+Types 
+no
+byname
+byType
+constructor
+
+i can run via maven spring boot plugin
+@configuration : wee are creating object in configuartion lass and saying add it to spring context.
+---------------------------------------------------------------------------------------------------
+generally our outputs and all are priinted to console but when our project is running in server ghen we cnanot spend whole day lookuh at console so we give a log file where all logs are
+-------------------------------------------
+maven works using plugins ..it have a lot of plugins
+in project in cd mvn spring-boot:run
+
+
+
+----------------------------
+List<Todo> getTodo(username);
+List<Todo> getPendingTodo(username);
+List<Todo> getPendingTodo(username , dateStrt,dateebrd);
+
+//normal 
+boundary values
+exception
+--------------------------------------------------------------------
+http is a stateless protocol so when one req is sent and then done.
+so we create a session 

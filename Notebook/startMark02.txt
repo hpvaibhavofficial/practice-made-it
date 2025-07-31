@@ -1,0 +1,131 @@
+Polymorphism means "many forms" — the ability to use the same function name to perform different tasks based on context. (Two functions have same name but different implementations.)
+
+Compile-Time Polymorphism (Function Overloading)
+Same function name, but different number or types of parameters.
+Resolved by the compiler at compile time.
+No inheritance is needed.
+
+Runtime Polymorphism (Function Overriding)
+Same function name and parameters, but defind in base and derived classes.
+Achieved using inheritance and the virtual keyword.
+Resolved at runtime using dynamic dispatch (vtable).
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Constructor
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+A special function which have same name as that of class and is automatically called when object of that class is created.
+do not have any return type not even void.
+Used to initialize the objects.
+
+three types
+Default constructors (having no arguments or parameters)
+Parameterized constructor (having parameters)
+copy constructor (it copies values from other object)
+
+-------------------------------------------------------------------------------------------------------------------------------------
+Static in Java -> 
+Static data members are shared members.
+These data members are not part of objects; they are part of the class.
+Static methods also belong to the class.
+Static methods can access other static data members and static methods directly.
+Static methods cannot access non-static (instance) members directly.
+Static methods always exist (even without creating an object).
+We always call them using the class name.
+------------------------------------------------------------------------------------------------------------------------------------
+
+Instance Methods (Non-static):
+When we write a regular method, it usually describes the behavior of an object.
+These methods are tied to a specific object and can access that object’s data.
+
+Static Methods:
+Static methods are methods that are not related to any specific object.
+They belong to the class itself, not to instances of the class.
+You can call them without creating an object.
+
+Factory Methods:
+Static methods that return objects are known as factory methods.
+They are used to create and return instances of a class.
+Useful in situations where object creation needs control or customization.
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+Inheritance
+------------------------------
+
+Inheritance is a relationship. It should fit into an "is-a" or "is-an" relation.
+Every derived class object is a type of the base class.
+So, a base class reference (variable) can always point to a derived class object.
+base (variable) = derieved object
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Abstract Classes -> basically an incomplete class.
+are ones which are in general incomplete in there functionality...
+We never create objects of these classes but are mostly inherited by other classes and the classes which inherit these are called concrete classes.
+Only use of abstract classes is that these are inherited by other classes.
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+in java there is nothing called global so if we wanna declare some constants then we can do via interfaces.
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Interfaces -> It is a reference type that defines a contract of what a class can do, without specifying how it does it.(reusability)
+Before Java 8, interfaces could only have abstract methods (i.e., methods without a body).
+It was not allowed to define any method with a body (implementation) inside an interface.
+Java 8 introduced a new feature called default methods in interfaces.
+With default methods, interfaces can now have methods with implementations using the default keyword.
+in interface all abstract methods are by default public.
+in interface we can have 3 types of methods
+Abstract Methods  ->  methods having no body
+Default Methods  -> methods with body and can be overriden and inherited and can be called with object of class
+Static Methods -> it cannot be inherited and can not be called by object of class.
+Also the variable declared in interface are public static and final and Initialization of variables are mandatory in Interfaces.
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Exception -> are runtime errors.
+throw is a keyword used to throw an exception and helps in throwing thee object of exception an exception.
+
+-----------------------------------------------------------------------------------------------------------------------------
+
+Strings ->
+In string pool onee string only occurs once.in java == checks for the references of object not for the content and thats why it doesnt work for string. 
+In java string objects are immutable and can not be changed if once created.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Abstraction means my view of class student to solve a problem.
+
+------------------------------------------------------------------
+
+Hiding the details comes under encapsulation.
+-------------------------------------------------------------------------------------
+
+Generics -> if i wanna write an algowhen we are not concerned about datatype. We use only wrapper classes for generics instead of datatypes.
+
+-----------------------------------------------------------
+
+Autoboxing
+collection is a generic interface.
+One interface can extend another interface.
+List in java is an interface.
+
+----------------------------------------------------------------------------------------------------------------------------------------
+
+//Inner class objects got access to all outer data
+Java will create a dummy class and an dummy object of that class. 
+Basically this class dont have any name but have create an object.
+A functional interface in java is that which consists of only one abstract method.
+
+------------------------------------------------------------------------------------------------------------------------------------------
+custom 
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
+1nf -> all attributes must be atomic
+3nf -> no transitive dependency a->b->c
+2nf -> 
+---------------------
+
+
+
+
+
