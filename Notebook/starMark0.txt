@@ -1,0 +1,4 @@
+HTML is Hyper Text Markup Language.
+Its essential as it defines the stucture and content of a webpage.
+
+HTML is a standard language which is used to create and stucture the content on the web.
