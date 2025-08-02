@@ -1,4 +1,17 @@
 HTML is Hyper Text Markup Language.
 Its essential as it defines the stucture and content of a webpage.
+HTML is a standard language which is used to create and structure the content on the web.HTML guides the browser that how the stucture of page will look like.
+ 
+In modern days we give <!DOCTYPE html> declaration on the top to let the browser know that page is written in modren HTML standards also known as HTML Living standards.
 
-HTML is a standard language which is used to create and stucture the content on the web.
+Every HTML document has 2 sections 
+
+Head section - within head tag
+This part of document contains all behind the scenes info regarding our doc.
+meta info 
+title
+link
+style
+script
+
+Body section
