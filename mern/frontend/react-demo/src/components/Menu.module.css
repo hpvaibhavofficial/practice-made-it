@@ -1,0 +1,26 @@
+.menuWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding: 20px 40px; /* adds top-bottom: 20px, left-right: 40px */
+}
+
+.search {
+  width: 50%;
+  padding: 10px 15px;
+  font-size: 16px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  outline: none;
+  max-width: 500px;
+}
+
+.menuContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 25px;
+  width: 100%;
+  max-width: 1200px; /* prevents it from stretching too far on large screens */
+  margin: 0 auto; /* centers the grid */
+}
