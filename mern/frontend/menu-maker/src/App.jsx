@@ -7,20 +7,27 @@ import Container from "./components/Container";
 import FoodInput from "./components/FoodInput";
 
 export default function App() {
-  let arr = ["Dal", "Chapati", "Matar Paneer", "Mix Veg", "Salad", "Milk"];
-
+  //let arr = ["Dal", "Chapati", "Matar Paneer", "Mix Veg", "Salad", "Milk"];
   // let [tts,setTTs] = useState("Here content will display.")
-  const handleChange = (e) => {
+  
+  let [foodItems , setFoodItems] = useState(["Ghee","Paneer"]);
+  const onKeyDown = (e) => {
     // setTTs(e.target.value)
+    if(e.key === 'Enter'){
+      let newItem = e.target.value;
+      setFoodItems([...foodItems,newItem]);
+    }   
   };
+
+  
 
   return (
     <>
       <Container>
-        <ErrorMessage items={arr} />
-        <FoodInput handleChange={handleChange} />
+        <ErrorMessage items={foodItems} />
+        <FoodInput handleChange={onKeyDown} />
         {/* <p>{tts}</p> */}
-        <FoodItem items={arr} />
+        <FoodItem items={foodItems} />
       </Container>
 
       <Container>

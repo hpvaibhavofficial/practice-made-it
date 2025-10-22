@@ -1,6 +1,12 @@
+import { useState } from "react";
 import Item from "./Item";
 
 function FoodItem({ items }) {
+  let [activeItems,setActiveItems] = useState([]);
+  const handleBuyButton = (e,item) =>{
+      let newItems = [...activeItems,item];
+      setActiveItems(newItems)
+  }
   return (
     <>
       <ul className="list-group">
@@ -8,7 +14,8 @@ function FoodItem({ items }) {
           <Item
             key={item}
             fooditem={item}
-            handleBuyButton={() => console.log(`Item Bought ${item}`)}
+            bought ={activeItems.includes(item)}
+            handleBuyButton={(event) => (handleBuyButton(event,item))}
           />
         ))}
       </ul>

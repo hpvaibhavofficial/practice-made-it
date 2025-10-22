@@ -1,0 +1,12 @@
+.calculator{
+    margin: 30px;
+    border: 1px solid black;
+    width: 200px;
+    border-radius: 5px;
+}
+
+.display{
+    margin: 10px;
+    width: 175px;
+}
+
